@@ -4,12 +4,14 @@ import edu.eci.proyecto.dto.UserRequestDTO;
 import edu.eci.proyecto.dto.UserResponseDTO;
 import edu.eci.proyecto.entity.User;
 import edu.eci.proyecto.exception.UserNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+@Service
 public class UserServiceImpl  implements UserService{
 
     private final HashMap<UUID, User> database =new HashMap<>();
@@ -18,6 +20,7 @@ public class UserServiceImpl  implements UserService{
     public UserResponseDTO createUser(UserRequestDTO userRequestdto) {
         UUID id =UUID.randomUUID();
         User user= new User(id,userRequestdto.getName(),userRequestdto.getEmail(),userRequestdto.getPassword());
+        database.put(id,user);
         return convertToResponse(user);
     }
 
