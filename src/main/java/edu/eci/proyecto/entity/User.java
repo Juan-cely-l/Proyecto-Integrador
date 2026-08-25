@@ -1,11 +1,19 @@
 package edu.eci.proyecto.entity;
 
+
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.UUID;
 
-
+@Document(collection = "users")
 public class User {
+    @Id
     private UUID id;
     private String name;
+    @Field("email_address")
     private String email;
     private String password;
 
