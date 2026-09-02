@@ -1,10 +1,13 @@
-package edu.eci.proyecto.respository;
+package edu.eci.proyecto.repository;
 
 import edu.eci.proyecto.entity.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+
+import java.util.Optional;
 import java.util.UUID;
 
 public interface UserRepository  extends MongoRepository<User, UUID> {
-    User getById(UUID id);
+
+    Optional<User> findByEmail(String email);
 }
