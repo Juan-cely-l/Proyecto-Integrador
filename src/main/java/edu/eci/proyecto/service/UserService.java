@@ -1,17 +1,16 @@
 package edu.eci.proyecto.service;
 
-import edu.eci.proyecto.dto.UserRequestDTO;
+import edu.eci.proyecto.dto.UserCreateRequestDTO;
 import edu.eci.proyecto.dto.UserResponseDTO;
-import edu.eci.proyecto.entity.User;
-import org.springframework.stereotype.Service;
+import edu.eci.proyecto.dto.UserUpdateRequestDTO;
 
 import java.util.List;
 import java.util.UUID;
 
 
 public interface UserService {
-    UserResponseDTO createUser(UserRequestDTO userRequestdto);
-    UserResponseDTO updateUser(UUID id , UserRequestDTO userRequestdto);
+    UserResponseDTO createUser(UserCreateRequestDTO userCreateRequestdto);
+    UserResponseDTO updateUser(UUID id , UserUpdateRequestDTO userUpdateRequestDTO);
     UserResponseDTO getUserById(UUID id);
     List<UserResponseDTO>getAll();
     void deleteUser(UUID id);

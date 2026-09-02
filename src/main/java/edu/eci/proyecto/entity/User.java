@@ -1,7 +1,4 @@
 package edu.eci.proyecto.entity;
-
-
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -16,14 +13,15 @@ public class User {
     @Field("email_address")
     private String email;
     private String password;
+    private Role role =Role.USER;
 
     public User(){}
 
-    public User(UUID id , String name , String email,String password){
-        this.id=id;
-        this.name=name;
-        this.email=email;
-        this.password=password;
+    public User(UUID id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     public UUID getId() {
@@ -56,5 +54,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
